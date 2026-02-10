@@ -1,0 +1,154 @@
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.auth-card {
+  max-width: 420px;
+  margin: 100px auto;
+  background: white;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.movie-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.movie-card h3 {
+  padding: 12px;
+  font-size: 18px;
+}
+
+
+.cinema-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.seat-top {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.seat-top select {
+  padding: 8px 14px;
+  font-size: 16px;
+}
+
+.screen {
+  text-align: center;
+  margin: 25px auto;
+  padding: 8px;
+  width: 60%;
+  background: #e5e7eb;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.seat-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  justify-items: center;
+  margin-bottom: 30px;
+}
+
+.seat {
+  width: 55px;
+  height: 42px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.seat:hover {
+  background: #c7d2fe;
+}
+
+.seat.selected {
+  background: #2563eb;
+  color: white;
+}
+
+.seat.booked {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.confirm-btn {
+  display: block;
+  margin: auto;
+  padding: 14px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background: #1d4ed8;
+}
+
+
+.success-box {
+  max-width: 500px;
+  margin: 120px auto;
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
