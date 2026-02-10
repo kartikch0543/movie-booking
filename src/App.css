@@ -1,4 +1,6 @@
-/* Base Styles */
+/* =========================
+   BASE STYLES
+========================= */
 * {
   box-sizing: border-box;
   font-family: var(--font-main);
@@ -9,31 +11,35 @@ body {
   background-color: var(--background);
   color: var(--text-main);
   min-height: 100vh;
-  font-size: 13px;
-  line-height: 1.35;
+  font-size: 14px; /* ✅ FIXED (was too small) */
+  line-height: 1.6; /* ✅ Better readability */
 }
 
-
+/* =========================
+   CONTAINER
+========================= */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 15px 10px;
+  padding: 20px 16px;
 }
 
-
+/* =========================
+   HEADINGS & TEXT
+========================= */
 h2 {
-  font-size: 22px;
+  font-size: 24px;
   text-align: center;
-  margin-bottom: 24px;
-  font-weight: 700;
+  margin-bottom: 28px;
+  font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #000000 !important;
+  color: #111; /* ✅ removed !important */
 }
 
 h3 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--text-main);
 }
 
@@ -41,42 +47,48 @@ p {
   color: var(--text-muted);
 }
 
-
+/* =========================
+   INPUTS & SELECTS
+========================= */
 input,
 select {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  font-size: 13px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  font-size: 14px;
 
   border-radius: 10px;
-  border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-main);
+  border: 1px solid #ccc;
+  background-color: #ffffff; /* ✅ readable */
+  color: #111;
+
   outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
 input::placeholder {
-  color: #b2bec3;
+  color: #888;
 }
 
 input:focus,
 select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.25);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
 }
 
 option {
-  background: #2d3436;
-  color: #ffffff;
+  background: #ffffff;
+  color: #111;
 }
 
-
+/* =========================
+   BUTTONS
+========================= */
 button {
-  padding: 14px 24px;
-  margin-top: 15px;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 14px 26px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
 
   border: none;
   border-radius: 14px;
@@ -90,24 +102,26 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(108, 92, 231, 0.5);
+  box-shadow: 0 10px 26px rgba(108, 92, 231, 0.45);
 }
 
+/* =========================
+   AUTH CARD
+========================= */
 .auth-card {
   max-width: 420px;
   margin: 80px auto;
-  padding: 40px;
+  padding: 42px;
   text-align: center;
 
-  background: rgba(45, 52, 54, 0.55);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff; /* ✅ readable */
   border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .auth-card p a {
   color: var(--secondary);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -115,50 +129,57 @@ button:hover {
   text-decoration: underline;
 }
 
-
+/* =========================
+   CITY SELECTION
+========================= */
 .city-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 22px;
+  gap: 24px;
   margin-top: 40px;
 }
 
 .city-grid button {
   min-width: 170px;
-  padding: 22px 38px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 20px 36px;
+  font-size: 16px;
+  font-weight: 700;
 
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 18px;
 
-  color: #232222;
+  color: #111; /* ✅ FIXED */
   cursor: pointer;
 
   transition: background 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .city-grid button:hover {
-  background: rgba(0, 206, 201, 0.18);
-  color: #222121;
+  background: rgba(0, 206, 201, 0.15);
+  color: #111;
 
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 206, 201, 0.35);
+  box-shadow: 0 12px 26px rgba(0, 206, 201, 0.3);
 }
 
-
+/* =========================
+   MOVIE GRID
+========================= */
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 32px;
 }
 
+/* =========================
+   MOVIE CARD
+========================= */
 .movie-card {
+  background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
@@ -167,42 +188,45 @@ button:hover {
 
 .movie-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
 }
 
 .movie-card img {
   width: 100%;
   height: 340px;
   object-fit: cover;
-  border-radius: 18px;
 }
 
 .movie-card h3 {
   margin: 14px 0 4px;
   text-align: center;
-  color: #ffffff;
+  color: #111; /* ✅ FIXED (was white) */
 }
 
 .movie-card p {
   text-align: center;
   color: #f1c40f;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-
+/* =========================
+   BOOKING
+========================= */
 .booking-container {
   max-width: 720px;
   margin: 0 auto;
 }
 
-
+/* =========================
+   INVOICE
+========================= */
 .invoice {
   max-width: 540px;
   margin: 60px auto;
   padding: 40px;
 
-  background: rgba(15, 14, 14, 0.95);
+  background: #111;
   color: #ffffff;
   border-radius: 22px;
 }
@@ -216,13 +240,16 @@ button:hover {
   display: flex;
   justify-content: space-between;
   margin: 12px 0;
-  color: #dfe6e9;
+  color: #e0e0e0;
 }
 
 .invoice strong {
   color: #ffffff;
 }
 
+/* =========================
+   SUCCESS
+========================= */
 .success h2 {
   color: var(--secondary);
 }

@@ -1,5 +1,5 @@
 /* =====================
-   NAVBAR ROOT
+   NAVBAR WRAPPER
 ===================== */
 .nav {
   position: fixed;
@@ -7,46 +7,46 @@
   left: 0;
   width: 100%;
   height: 64px;
-  z-index: 1000;
-
   background: #ffffff;
   border-bottom: 1px solid #eee;
+  z-index: 1000;
 
   display: flex;
   align-items: center;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav__black {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* =====================
-   NAV CONTAINER
+   NAV CONTENT
 ===================== */
 .nav__contents {
-  width: 100%;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
   display: flex;
-  align-items: center;
+  align-items: center;          /* ✅ perfect vertical center */
   justify-content: space-between;
 
   padding: 0 24px;
 }
 
 /* =====================
-   LOGO (LEFT)
+   LOGO
 ===================== */
 .nav__logo {
-  font-size: 1.4rem;
-  font-weight: 900;
-  cursor: pointer;
-
-  color: #f84464;
-  letter-spacing: -0.5px;
   margin: 0;
+  padding: 0;
+
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+
+  cursor: pointer;
+  color: #f84464;
 
   display: flex;
   align-items: center;
@@ -58,27 +58,28 @@
 }
 
 /* =====================
-   LINKS (RIGHT)
+   RIGHT LINKS
 ===================== */
 .nav__links {
   display: flex;
-  align-items: center;
+  align-items: center;          /* ✅ fixes misalignment */
   gap: 18px;
 }
 
-/* NAV LINKS */
+/* LINKS */
 .nav__link {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
 
-  color: #111;
-  padding: 8px 10px;
+  color: #000;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 12px;
 
   display: flex;
   align-items: center;
-  height: 36px;
 }
 
 .nav__link:hover {
@@ -89,18 +90,17 @@
    LOGOUT BUTTON
 ===================== */
 .nav__avatar {
-  background: #f84464;
-  color: #fff;
+  height: 36px;
+  padding: 0 18px;
 
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
 
-  padding: 0 16px;
-  height: 36px;
+  background: #f84464;
+  color: white;
 
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.6px;
   text-transform: uppercase;
 
   cursor: pointer;
@@ -108,6 +108,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: relative;
+  top: -1px;   /* ✅ FINAL alignment fix */
 }
 
 .nav__avatar:hover {

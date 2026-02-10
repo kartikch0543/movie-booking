@@ -1,27 +1,35 @@
 .movie-card {
     position: relative;
-    transition: transform var(--transition-normal);
     cursor: pointer;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    flex: 0 0 auto;
+
     width: 160px;
-    aspect-ratio: 2/3;
-    /* Standard Vertical Poster */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    /* Light shadow */
+    aspect-ratio: 2 / 3; /* Standard vertical poster */
+
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+
     background: var(--surface);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
 }
 
+/* Large card variant */
 .movie-card--large {
     width: 180px;
-    aspect-ratio: 2/3;
 }
 
+/* Hover effect */
 .movie-card:hover {
     z-index: 10;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
+/* Poster image */
 .movie-card__poster {
     width: 100%;
     height: 100%;
@@ -29,34 +37,44 @@
     display: block;
 }
 
+/* Overlay (title + rating) */
 .movie-card__overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    inset: auto 0 0 0;
+
     padding: 12px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.1),
+        transparent
+    );
+
     opacity: 0;
     transition: opacity var(--transition-normal);
 }
 
+/* Show overlay on hover */
 .movie-card:hover .movie-card__overlay {
     opacity: 1;
 }
 
+/* Movie title */
 .movie-card__title {
-    color: white;
-    /* Overlay text matches dark gradient, even in light theme */
+    color: #ffffff;
     font-size: 0.95rem;
-    margin: 0 0 4px 0;
+    font-weight: 600;
+
+    margin: 0 0 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* Rating */
 .movie-card__rating {
     color: var(--warning);
     font-size: 0.85rem;
-    margin: 0;
     font-weight: 600;
+    margin: 0;
 }

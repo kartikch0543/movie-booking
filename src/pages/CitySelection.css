@@ -1,39 +1,83 @@
+/* =========================
+   CITY SELECTION PAGE
+========================= */
 .city-selection {
     min-height: 100vh;
     padding-top: var(--nav-height);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: var(--background);
 }
 
+/* =========================
+   TITLE
+========================= */
 .city-selection__title {
     text-align: center;
     font-size: 1.6rem;
     margin-bottom: 2rem;
-    color: #000000 !important;
+
     font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    color: #111; /* removed !important */
 }
 
+/* =========================
+   GRID
+========================= */
 .city-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
+    gap: 16px;
+
     max-width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
+/* =========================
+   CITY BUTTON
+========================= */
 .city-btn {
-    background: #e4e6eb !important;
-    border: 2px solid #000 !important;
-    color: #000 !important;
-    padding: 12px 20px;
+    background: #e4e6eb;
+    border: 1.5px solid #111;
+    color: #111;
+
+    padding: 14px 20px;
     font-size: 14px;
     font-weight: 800;
-    border-radius: 6px;
-    transition: none;
+
+    border-radius: 8px;
     cursor: pointer;
     text-transform: uppercase;
+
     min-width: 140px;
-    margin: 5px;
+
+    transition: 
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* Hover */
+.city-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Active / Selected */
+.city-btn:active {
+    transform: translateY(0);
+}
+
+/* Keyboard focus (accessibility) */
+.city-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.25);
 }
