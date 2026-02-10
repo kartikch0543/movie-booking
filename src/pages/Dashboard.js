@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const MOCK_MOVIES = [
   {
