@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Mock data to ensure movies always display
+
 const MOCK_MOVIES = [
   {
     id: 1,

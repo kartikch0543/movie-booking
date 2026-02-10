@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* =====================
-   ROOT VARIABLES
-===================== */
+
 :root {
   --primary: #6c5ce7;
   --secondary: #00cec9;
@@ -12,12 +10,10 @@
   --glass-border: rgba(255, 255, 255, 0.15);
 
   --text-main: #ffffff;
-  --text-muted: #dfe6e9;
+  --text-muted: #42545c;
 }
 
-/* =====================
-   GLOBAL RESET
-===================== */
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -32,18 +28,14 @@ body {
   line-height: 1.6;
 }
 
-/* =====================
-   CONTAINER
-===================== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* =====================
-   HEADINGS
-===================== */
+
 h2 {
   font-size: 34px;
   text-align: center;
@@ -67,9 +59,7 @@ p {
   color: var(--text-muted);
 }
 
-/* =====================
-   INPUTS & SELECTS
-===================== */
+
 input,
 select {
   width: 100%;
@@ -81,7 +71,6 @@ select {
   border: 1px solid var(--glass-border);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-main);
-
   outline: none;
 }
 
@@ -100,13 +89,10 @@ option {
   color: #ffffff;
 }
 
-/* =====================
-   BUTTONS
-===================== */
+
 button {
   padding: 14px 24px;
   margin-top: 15px;
-
   font-size: 15px;
   font-weight: 600;
 
@@ -115,7 +101,7 @@ button {
   cursor: pointer;
 
   background: linear-gradient(135deg, var(--primary), #8c7bff);
-  color: white;
+  color: #ffffff;
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -125,9 +111,6 @@ button:hover {
   box-shadow: 0 10px 28px rgba(108, 92, 231, 0.5);
 }
 
-/* =====================
-   AUTH CARD (LOGIN / REGISTER)
-===================== */
 .auth-card {
   max-width: 420px;
   margin: 80px auto;
@@ -140,10 +123,6 @@ button:hover {
   border-radius: 22px;
 }
 
-.auth-card h2 {
-  margin-bottom: 20px;
-}
-
 .auth-card p a {
   color: var(--secondary);
   font-weight: 600;
@@ -154,9 +133,7 @@ button:hover {
   text-decoration: underline;
 }
 
-/* =====================
-   CITY SELECTION
-===================== */
+
 .city-grid {
   display: flex;
   justify-content: center;
@@ -169,30 +146,36 @@ button:hover {
   min-width: 170px;
   padding: 22px 38px;
   font-size: 18px;
+  font-weight: 600;
 
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 18px;
+
+  color: #232222; 
+  cursor: pointer;
+
+  transition: background 0.2s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .city-grid button:hover {
+  background: rgba(0, 206, 201, 0.18);
+  color: #222121;
+
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 206, 201, 0.25);
+  box-shadow: 0 12px 28px rgba(0, 206, 201, 0.35);
 }
 
-/* =====================
-   MOVIE GRID
-===================== */
+
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 32px;
 }
 
-/* =====================
-   MOVIE CARD
-===================== */
 .movie-card {
   border-radius: 18px;
   overflow: hidden;
@@ -225,17 +208,13 @@ button:hover {
   margin-bottom: 12px;
 }
 
-/* =====================
-   BOOKING PAGE
-===================== */
+
 .booking-container {
   max-width: 720px;
   margin: 0 auto;
 }
 
-/* =====================
-   INVOICE / SUCCESS
-===================== */
+
 .invoice {
   max-width: 540px;
   margin: 60px auto;

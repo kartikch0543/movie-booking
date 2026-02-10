@@ -1,6 +1,4 @@
-/* Component Specific Styles */
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -41,7 +39,7 @@
   }
 }
 
-/* Auth Pages */
+
 .auth-card {
   max-width: 420px;
   margin: 60px auto;
@@ -87,7 +85,7 @@
   transform-origin: bottom left;
 }
 
-/* City Selection */
+
 .city-grid {
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +96,7 @@
 
 .city-grid button {
   background: rgba(255, 255, 255, 0.08);
-  /* Softer glass */
+ 
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 25px 45px;
   font-size: 20px;
@@ -107,7 +105,7 @@
   min-width: 180px;
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Bouncy spring transition */
+
 }
 
 .city-grid button:hover {
@@ -117,7 +115,7 @@
   box-shadow: 0 15px 30px rgba(0, 206, 201, 0.2);
 }
 
-/* Dashboard Movie Grid */
+
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -136,7 +134,7 @@
   border-radius: 20px;
   transition: all 0.4s ease;
   animation: fadeIn 1s ease-out;
-  /* Stagger this in JS if possible, but global fade is okay */
+
 }
 
 .movie-card:hover {
@@ -166,7 +164,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  color: #fff;
+  color: #0c0c0c;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -178,7 +176,7 @@
   font-size: 1.1rem;
 }
 
-/* Booking Page */
+
 .booking-container {
   max-width: 700px;
   margin: 0 auto;
@@ -197,11 +195,11 @@
   border-radius: 24px;
 }
 
-/* Success / Invoice */
+
 .invoice {
   max-width: 550px;
   margin: 50px auto;
-  background: #fff;
+  background: #0d0d0d;
   color: #2d3436;
   position: relative;
   padding: 40px;
@@ -218,12 +216,12 @@
   left: 0;
   right: 0;
   height: 12px;
-  background: radial-gradient(circle, transparent 70%, #ffffff 75%) 0 0/24px 24px;
+  background: radial-gradient(circle, transparent 70%, #2b2a2a 75%) 0 0/24px 24px;
 }
 
 .invoice h3 {
   color: #2d3436;
-  border-bottom: 2px dashed #b2bec3;
+  border-bottom: 2px dashed #919b9f;
   padding-bottom: 15px;
   margin-top: 0;
 }
