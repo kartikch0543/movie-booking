@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "../components/common/Navbar";
+import "./Showtime.css";
 
 export const Showtime = () => {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ export const Showtime = () => {
     const booking = {
       bookingId: Math.floor(Math.random() * 1000000), // Random Transaction ID
       user: JSON.parse(localStorage.getItem("currentUser")) || { username: "Guest" },
-      movie: movie.title,
+      movie: movie.title || movie.name,
       city,
       cinema,
       date,
@@ -60,47 +62,59 @@ export const Showtime = () => {
   if (!movie || !city) return null;
 
   return (
-    <div className="container">
-      <h2>Book Tickets</h2>
+    <div className="showtime-page">
+      <Navbar />
+      <div className="container booking-container">
+        <h1 className="auth-logo">BOOKyourMOVIE</h1>
+        <h2 className="page-title">Book Tickets</h2>
 
-      <div className="booking-summary" style={{ background: "#f9f9f9", padding: "15px", borderRadius: "8px", marginBottom: "20px" }}>
-        <p><b>Movie:</b> {movie.title}</p>
-        <p><b>City:</b> {city}</p>
+        <div className="booking-summary">
+          <p><b>Movie:</b> {movie.title || movie.name}</p>
+          <p><b>City:</b> {city}</p>
+        </div>
+
+        <div className="form-group">
+          <label>Cinema</label>
+          <select onChange={e => setCinema(e.target.value)}>
+            <option value="">Select Cinema</option>
+            {(cinemaMap[city] || []).map(c => (
+              <option key={c}>{c}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Date</label>
+          <input type="date" value={date} onChange={e => setDate(e.target.value)} />
+        </div>
+
+        <div className="form-group">
+          <label>Show Time</label>
+          <select onChange={e => setTime(e.target.value)}>
+            <option value="">Select Time</option>
+            <option>10:00 AM</option>
+            <option>1:00 PM</option>
+            <option>4:00 PM</option>
+            <option>7:00 PM</option>
+            <option>10:00 PM</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>People</label>
+          <select onChange={e => setPeople(Number(e.target.value))}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
+              <option key={n}>{n}</option>
+            ))}
+          </select>
+        </div>
+
+        <h3>Total Price: ₹{totalPrice}</h3>
+
+        <button className="confirm-btn primary-btn" onClick={confirmBooking}>
+          Proceed to Payment
+        </button>
       </div>
-
-      <label>Cinema</label>
-      <select onChange={e => setCinema(e.target.value)}>
-        <option value="">Select Cinema</option>
-        {(cinemaMap[city] || []).map(c => (
-          <option key={c}>{c}</option>
-        ))}
-      </select>
-
-      <label>Date</label>
-      <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-
-      <label>Show Time</label>
-      <select onChange={e => setTime(e.target.value)}>
-        <option value="">Select Time</option>
-        <option>10:00 AM</option>
-        <option>1:00 PM</option>
-        <option>4:00 PM</option>
-        <option>7:00 PM</option>
-        <option>10:00 PM</option>
-      </select>
-
-      <label>People</label>
-      <select onChange={e => setPeople(Number(e.target.value))}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
-          <option key={n}>{n}</option>
-        ))}
-      </select>
-
-      <h3>Total Price: ₹{totalPrice}</h3>
-
-      <button className="confirm-btn" onClick={confirmBooking}>
-        Proceed to Payment
-      </button>
     </div>
   );
 };

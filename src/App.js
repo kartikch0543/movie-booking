@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Showtime } from "./pages/Showtime";
 import { Success } from "./pages/Success";
 import { CitySelection } from "./pages/CitySelection";
+import "./styles/variables.css";
 import "./App.css";
 import "./index.css"
 export default function App() {

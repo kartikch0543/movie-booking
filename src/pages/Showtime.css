@@ -1,0 +1,68 @@
+.showtime-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.booking-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: var(--surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.booking-summary {
+    background: var(--surface-hover);
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-summary p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.booking-summary b {
+    color: var(--text-main);
+    margin-right: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    margin-top: 20px;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.page-title {
+    color: #f84464 !important;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}

@@ -1,0 +1,74 @@
+:root {
+    /* Colors - Professional High Contrast Theme */
+    --primary: #f84464;
+    --primary-hover: #fa647f;
+
+    --background: #f0f2f5;
+    /* Professional Light Slate Gray */
+    --surface: #ffffff;
+    --surface-hover: #f7f8fa;
+
+    --text-main: #050505;
+    --text-secondary: #65676b;
+    --text-disabled: #bcc0c4;
+
+    --border-color: #ced0d4;
+    --input-bg: #e4e6eb;
+
+    --success: #2ecc71;
+    --error: #e74c3c;
+    --warning: #f1c40f;
+
+    /* Typography */
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 3px;
+    --spacing-sm: 6px;
+    --spacing-md: 10px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 30px;
+
+    /* Layout */
+    --container-width: 900px;
+    --nav-height: 50px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 6px;
+    --border-radius-lg: 10px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.35;
+    font-size: 13px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    margin-top: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-main);
+}

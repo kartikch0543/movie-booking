@@ -1,0 +1,39 @@
+.movie-row {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.movie-row__title {
+    color: #000000 !important;
+    /* Force Black */
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 800;
+    padding-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.movie-row__posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px 10px;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for clean UI but keep functionality */
+.movie-row__posters::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-row__posters {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.movie-row__posters--large {
+    padding-top: 40px;
+    /* Extra space for transform scale */
+}

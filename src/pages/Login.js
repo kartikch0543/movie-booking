@@ -18,17 +18,19 @@ export const Login = () => {
     }
 
     localStorage.setItem("currentUser", JSON.stringify(user));
-    localStorage.setItem("currentUser", JSON.stringify(user));
     navigate("/city-selection");
   };
 
   return (
-    <div className="auth-card">
-      <h2>Login</h2>
-      <input placeholder="Username" onChange={e => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-      <button onClick={login}>Login</button>
-      <p>New user? <Link to="/register">Register</Link></p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-logo">BOOKyourMOVIE</h1>
+        <h2>Login</h2>
+        <input placeholder="Username" onChange={e => setUsername(e.target.value)} />
+        <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+        <button onClick={login}>Login</button>
+        <p>New user? <Link to="/register">Register</Link></p>
+      </div>
     </div>
   );
 };

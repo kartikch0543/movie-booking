@@ -1,71 +1,99 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-
-const MOCK_MOVIES = [
-  {
-    id: 1,
-    title: "Avatar: The Way of Water",
-    poster_path: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-    vote_average: 7.7
-  },
-  {
-    id: 2,
-    title: "Puss in Boots: The Last Wish",
-    poster_path: "https://image.tmdb.org/t/p/w500/kuf6dutpsT0vSVehic3EZIqkOBt.jpg",
-    vote_average: 8.4
-  },
-  {
-    id: 3,
-    title: "M3GAN",
-    poster_path: "https://image.tmdb.org/t/p/w500/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg",
-    vote_average: 7.4
-  },
-  {
-    id: 4,
-    title: "Black Panther: Wakanda Forever",
-    poster_path: "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
-    vote_average: 7.3
-  }
-];
+import { Navbar } from "../components/common/Navbar";
+import { fetchTrending, fetchMoviesByGenre } from "../api/tmdb";
+import "./Dashboard.css";
 
 export const Dashboard = () => {
-  const [movies, setMovies] = useState(MOCK_MOVIES);
   const navigate = useNavigate();
   const selectedCity = localStorage.getItem("selectedCity");
 
+  const [trending, setTrending] = useState([]);
+  const [action, setAction] = useState([]);
+  const [animation, setAnimation] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 🔐 Guard route
   useEffect(() => {
     if (!selectedCity) {
       navigate("/city-selection");
     }
-    // We are using mock data, so no need to fetch from API for now to ensure stability
-  }, [navigate, selectedCity]);
+  }, [selectedCity, navigate]);
+
+  // 🎬 Fetch movies ONCE
+  useEffect(() => {
+    const loadMovies = async () => {
+      try {
+        const [trendRes, actionRes, animationRes] = await Promise.all([
+          fetchTrending(),
+          fetchMoviesByGenre(28),   // Action
+          fetchMoviesByGenre(16),   // Animation
+        ]);
+
+        setTrending(trendRes.data.results);
+        setAction(actionRes.data.results);
+        setAnimation(animationRes.data.results);
+      } catch (error) {
+        console.error("TMDB fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMovies();
+  }, []);
 
   const selectMovie = (movie) => {
     localStorage.setItem("selectedMovie", JSON.stringify(movie));
     navigate("/showtime");
   };
 
-  return (
-    <div className="container">
-      <h2>Now Showing in {selectedCity}</h2>
+  if (loading) {
+    return <h2 style={{ textAlign: "center" }}>Loading movies...</h2>;
+  }
 
+  const renderSection = (title, movies) => (
+    <section className="movie-section">
+      <h2 className="category-title">{title}</h2>
       <div className="movie-grid">
-        {movies.map(movie => (
+        {movies.map((movie) => (
           <div
             key={movie.id}
-            className="movie-card"
+            className="movie-card-simple"
             onClick={() => selectMovie(movie)}
           >
             <img
-              src={movie.poster_path.startsWith("http") ? movie.poster_path : `https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : "/no-poster.png"
+              }
               alt={movie.title}
+              className="movie-poster"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/no-poster.png";
+              }}
             />
-            <h3>{movie.title}</h3>
-            <p>⭐ {movie.vote_average}</p>
+            <div className="movie-info">
+              <h4>{movie.title}</h4>
+              <p>⭐ {movie.vote_average?.toFixed(1)}</p>
+            </div>
           </div>
         ))}
+      </div>
+    </section>
+  );
+
+  return (
+    <div className="dashboard">
+      <Navbar />
+      <div className="container">
+        <h1 className="main-title">Movies in {selectedCity}</h1>
+
+        {renderSection("Trending", trending)}
+        {renderSection("Action", action)}
+        {renderSection("Animation", animation)}
       </div>
     </div>
   );
