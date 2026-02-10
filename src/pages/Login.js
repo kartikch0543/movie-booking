@@ -18,7 +18,8 @@ export const Login = () => {
     }
 
     localStorage.setItem("currentUser", JSON.stringify(user));
-    navigate("/dashboard");
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    navigate("/city-selection");
   };
 
   return (
