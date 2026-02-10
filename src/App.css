@@ -1,248 +1,267 @@
-/* Component Specific Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+/* =====================
+   ROOT VARIABLES
+===================== */
+:root {
+  --primary: #6c5ce7;
+  --secondary: #00cec9;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  --bg-main: linear-gradient(135deg, #1e1e2f 0%, #252540 100%);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+
+  --text-main: #ffffff;
+  --text-muted: #dfe6e9;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-8px) rotate(0.5deg);
-  }
-
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-@keyframes pulse-glow {
-  0% {
-    box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 0 25px rgba(108, 92, 231, 0.7);
-  }
-
-  100% {
-    box-shadow: 0 0 10px rgba(108, 92, 231, 0.4);
-  }
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* Auth Pages */
+/* =====================
+   CONTAINER
+===================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* =====================
+   HEADINGS
+===================== */
+h2 {
+  font-size: 34px;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  background: linear-gradient(90deg, #a29bfe, #74b9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-muted);
+}
+
+/* =====================
+   INPUTS & SELECTS
+===================== */
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  font-size: 15px;
+
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+
+  outline: none;
+}
+
+input::placeholder {
+  color: #b2bec3;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.25);
+}
+
+option {
+  background: #2d3436;
+  color: #ffffff;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+button {
+  padding: 14px 24px;
+  margin-top: 15px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, var(--primary), #8c7bff);
+  color: white;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(108, 92, 231, 0.5);
+}
+
+/* =====================
+   AUTH CARD (LOGIN / REGISTER)
+===================== */
 .auth-card {
   max-width: 420px;
-  margin: 60px auto;
-  text-align: center;
-  animation: fadeIn 0.8s ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(45, 52, 54, 0.6);
+  margin: 80px auto;
   padding: 40px;
-  border-radius: 24px;
+  text-align: center;
+
+  background: rgba(45, 52, 54, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
 }
 
 .auth-card h2 {
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-.auth-card input {
-  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .auth-card p a {
   color: var(--secondary);
-  text-decoration: none;
   font-weight: 600;
-  position: relative;
+  text-decoration: none;
 }
 
-.auth-card p a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: var(--secondary);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+.auth-card p a:hover {
+  text-decoration: underline;
 }
 
-.auth-card p a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* City Selection */
+/* =====================
+   CITY SELECTION
+===================== */
 .city-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 40px;
 }
 
 .city-grid button {
+  min-width: 170px;
+  padding: 22px 38px;
+  font-size: 18px;
+
   background: rgba(255, 255, 255, 0.08);
-  /* Softer glass */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 25px 45px;
-  font-size: 20px;
   backdrop-filter: blur(8px);
-  width: auto;
-  min-width: 180px;
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Bouncy spring transition */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
 }
 
 .city-grid button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: var(--secondary);
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 15px 30px rgba(0, 206, 201, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 206, 201, 0.25);
 }
 
-/* Dashboard Movie Grid */
+/* =====================
+   MOVIE GRID
+===================== */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 35px;
-  margin-top: 30px;
-  padding-bottom: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 32px;
 }
 
+/* =====================
+   MOVIE CARD
+===================== */
 .movie-card {
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  position: relative;
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 20px;
-  transition: all 0.4s ease;
-  animation: fadeIn 1s ease-out;
-  /* Stagger this in JS if possible, but global fade is okay */
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  z-index: 2;
-  filter: brightness(1.1);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
 
 .movie-card img {
   width: 100%;
-  height: 360px;
+  height: 340px;
   object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease;
-}
-
-.movie-card:hover img {
-  box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+  border-radius: 18px;
 }
 
 .movie-card h3 {
-  margin: 15px 0 5px 0;
-  font-size: 20px;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 14px 0 4px;
   text-align: center;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
 .movie-card p {
   text-align: center;
-  color: #fdcb6e;
+  color: #f1c40f;
   font-weight: 700;
-  margin: 0;
-  font-size: 1.1rem;
+  margin-bottom: 12px;
 }
 
-/* Booking Page */
+/* =====================
+   BOOKING PAGE
+===================== */
 .booking-container {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
-  animation: fadeIn 0.6s ease-out;
 }
 
-.seat-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  justify-content: center;
-  margin: 30px auto;
-  max-width: 450px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 24px;
-}
-
-/* Success / Invoice */
+/* =====================
+   INVOICE / SUCCESS
+===================== */
 .invoice {
-  max-width: 550px;
-  margin: 50px auto;
-  background: #fff;
-  color: #2d3436;
-  position: relative;
+  max-width: 540px;
+  margin: 60px auto;
   padding: 40px;
-  transform-origin: top center;
-  animation:
-    fadeIn 0.6s ease-out,
-    float 6s ease-in-out infinite;
-}
 
-.invoice::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 0;
-  right: 0;
-  height: 12px;
-  background: radial-gradient(circle, transparent 70%, #ffffff 75%) 0 0/24px 24px;
+  background: rgba(15, 14, 14, 0.95);
+  color: #ffffff;
+  border-radius: 22px;
 }
 
 .invoice h3 {
-  color: #2d3436;
-  border-bottom: 2px dashed #b2bec3;
-  padding-bottom: 15px;
-  margin-top: 0;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.4);
+  padding-bottom: 14px;
 }
 
 .invoice p {
-  color: #636e72;
-  font-size: 1.1rem;
   display: flex;
   justify-content: space-between;
   margin: 12px 0;
+  color: #dfe6e9;
 }
 
 .invoice strong {
-  color: #2d3436;
+  color: #ffffff;
 }
 
 .success h2 {
-  color: #00cec9;
-  background: none;
-  -webkit-text-fill-color: initial;
-  text-shadow: 0 0 15px rgba(0, 206, 201, 0.4);
+  color: var(--secondary);
 }
