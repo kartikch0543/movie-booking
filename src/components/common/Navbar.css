@@ -1,6 +1,4 @@
-/* =====================
-   NAVBAR WRAPPER
-===================== */
+
 .nav {
   position: fixed;
   top: 0;
@@ -19,24 +17,19 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* =====================
-   NAV CONTENT
-===================== */
+
 .nav__contents {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 
   display: flex;
-  align-items: center;          /* ✅ perfect vertical center */
+  align-items: center;          
   justify-content: space-between;
 
   padding: 0 24px;
 }
 
-/* =====================
-   LOGO
-===================== */
 .nav__logo {
   margin: 0;
   padding: 0;
@@ -57,12 +50,10 @@
   margin: 0 4px;
 }
 
-/* =====================
-   RIGHT LINKS
-===================== */
+
 .nav__links {
   display: flex;
-  align-items: center;          /* ✅ fixes misalignment */
+  align-items: center;          
   gap: 18px;
 }
 
@@ -86,12 +77,10 @@
   color: #f84464;
 }
 
-/* =====================
-   LOGOUT BUTTON
-===================== */
+
 .nav__avatar {
-  height: 36px;
-  padding: 0 18px;
+  height: 35px;
+  padding: 0 15px;
 
   border: none;
   border-radius: 8px;
@@ -110,7 +99,7 @@
   justify-content: center;
 
   position: relative;
-  top: -1px;   /* ✅ FINAL alignment fix */
+  top: -7px;   
 }
 
 .nav__avatar:hover {

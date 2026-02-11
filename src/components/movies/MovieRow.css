@@ -1,13 +1,9 @@
-/* =========================
-   MOVIE ROW
-========================= */
+
 .movie-row {
     margin-bottom: 32px;
 }
 
-/* =========================
-   ROW TITLE
-========================= */
+
 .movie-row__title {
     font-size: 1.6rem;
     font-weight: 800;
@@ -18,12 +14,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 
-    color: #000; /* removed !important */
+    color: #000; 
 }
 
-/* =========================
-   POSTER CONTAINER
-========================= */
+
 .movie-row__posters {
     display: flex;
     gap: 15px;

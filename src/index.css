@@ -1,6 +1,4 @@
-/* =========================
-   CSS VARIABLES
-========================= */
+
 :root {
   --font-main: "Poppins", system-ui, sans-serif;
   --font-display: "Poppins", system-ui, sans-serif;
@@ -31,9 +29,7 @@
   --transition-fast: 0.2s ease;
 }
 
-/* =========================
-   GLOBAL RESET
-========================= */
+
 *,
 *::before,
 *::after {
@@ -49,18 +45,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   CONTAINER
-========================= */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -72,9 +62,7 @@ body {
   }
 }
 
-/* =========================
-   INPUTS & SELECT
-========================= */
+
 input,
 select {
   width: 100%;
@@ -104,9 +92,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(248, 68, 100, 0.15);
 }
 
-/* =========================
-   BUTTONS
-========================= */
 button {
   font-family: var(--font-main);
   font-weight: 700;
@@ -131,9 +116,7 @@ button:hover {
   box-shadow: 0 6px 16px rgba(248, 68, 100, 0.3);
 }
 
-/* =========================
-   AUTH PAGES
-========================= */
+
 .auth-page {
   min-height: 100vh;
   display: flex;
@@ -193,9 +176,6 @@ button:hover {
   text-decoration: underline;
 }
 
-/* =========================
-   CITY SELECTION
-========================= */
 .city-grid {
   display: flex;
   flex-wrap: wrap;
@@ -223,9 +203,6 @@ button:hover {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   SUCCESS PAGE
-========================= */
 .success {
   text-align: center;
   padding: 60px 20px;

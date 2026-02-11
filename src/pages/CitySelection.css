@@ -1,6 +1,4 @@
-/* =========================
-   CITY SELECTION PAGE
-========================= */
+
 .city-selection {
     min-height: 100vh;
     padding-top: var(--nav-height);
@@ -12,9 +10,7 @@
     background-color: var(--background);
 }
 
-/* =========================
-   TITLE
-========================= */
+
 .city-selection__title {
     text-align: center;
     font-size: 1.6rem;
@@ -27,9 +23,7 @@
     color: #111; /* removed !important */
 }
 
-/* =========================
-   GRID
-========================= */
+
 .city-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -40,9 +34,7 @@
     margin: 0 auto;
 }
 
-/* =========================
-   CITY BUTTON
-========================= */
+
 .city-btn {
     background: #e4e6eb;
     border: 1.5px solid #111;
